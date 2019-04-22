@@ -26,6 +26,9 @@ gem 'letter_opener_web', group: :development
 #for captcha
 gem 'recaptcha', require: 'recaptcha/rails'
 
+#for authorization
+gem 'cancancan'
+
 ##Default included gem
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

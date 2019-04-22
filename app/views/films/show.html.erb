@@ -7,14 +7,18 @@
 <% if user_signed_in? %>
 
   <% if @film.user_id == current_user.id || current_user.admin? %>
-
-    <%= link_to "Edit Film", edit_film_path(@film) %>
-    <%= link_to "Delete Film", film_path(@film), method: :delete, data: { confirm: "Are you sure you want to delete"} %>
+      <ul>
+        <li><%= link_to "Edit Film", edit_film_path(@film) %></li>
+        <li><%= link_to "Delete Film", film_path(@film), method: :delete, data: { confirm: "Are you sure you want to delete"} %></li>
+      </ul>
 
   <% end %>
 
   <% if current_user.editor %>
-    <%= link_to "Edit Film", edit_film_path(@film) %>
+    <ul>
+      <li><%= link_to "Edit Film", edit_film_path(@film) %></li>
+    </ul>
+
   <% end %>
 
 

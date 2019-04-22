@@ -1,5 +1,8 @@
 class FilmsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :find_film, only: [:show, :edit, :update, :destroy]
+
+
 
   #Index function that controles actions on the index or home page
   def index
@@ -13,6 +16,7 @@ class FilmsController < ApplicationController
   #New function to create a new Films linked to the new film view
   def new
       @film = current_user.films.build
+      authorize! :manage, @film
   end
 
   #create function works with the new function to create a new film
@@ -29,7 +33,7 @@ class FilmsController < ApplicationController
 
   #function to edit films .. linked to the edit view
   def edit
-
+    authorize! :update, @film
   end
 
   #works with the edit function to edit films
@@ -43,7 +47,8 @@ class FilmsController < ApplicationController
   end
 
   def destroy
-    @film.destory
+    authorize! :manage, @film
+    @film.destroy
     redirect_to root_path
 
   end
