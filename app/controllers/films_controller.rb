@@ -12,13 +12,13 @@ class FilmsController < ApplicationController
   end
   #New function to create a new Films linked to the new film view
   def new
-      @film = Film.new
+      @film = current_user.films.build
   end
 
   #create function works with the new function to create a new film
   def create
 
-      @film = Film.new(film_params)
+      @film = current_user.films.build(film_params)
       if @film.save
         redirect_to root_path
       else
