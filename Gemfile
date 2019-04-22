@@ -16,6 +16,9 @@ gem 'jquery-rails'
 
 #Fro user athentication
 gem 'devise', '~> 4.6', '>= 4.6.2'
+
+#check password strength
+gem 'devise_zxcvbn'
 ##Default included gem
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
