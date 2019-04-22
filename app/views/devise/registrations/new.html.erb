@@ -12,7 +12,7 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
-  
+
 
     <%= f.input :password,
                 required: true,
@@ -24,6 +24,9 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
+
+  <%= flash[:recaptcha_error] %>
+  <%= recaptcha_tags theme: 'dark' %>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
