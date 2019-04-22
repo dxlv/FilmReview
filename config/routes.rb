@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   root 'films#index'
 
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+
 end

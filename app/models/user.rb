@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :zxcvbnable
+         :recoverable, :rememberable, :validatable, :zxcvbnable, :confirmable
 
   def weak_words
        [self.email, self.username]
@@ -11,6 +11,5 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username, uniqueness: true
   validates :email, :username, :password, presence: true
-  #validates :password, 
-
+  #validates :password,
 end
