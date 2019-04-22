@@ -14,6 +14,8 @@ gem 'simple_form', '~> 4.1'
 #Gem required for bootstrap sass
 gem 'jquery-rails'
 
+#Fro user athentication
+gem 'devise', '~> 4.6', '>= 4.6.2'
 ##Default included gem
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
