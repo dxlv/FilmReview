@@ -1,7 +1,20 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+
+
 ruby '2.6.0'
+
+#Gem to include bootstrap for rails
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+
+#Gem to generate forms
+gem 'simple_form', '~> 4.1'
+
+#Gem required for bootstrap sass
+gem 'jquery-rails'
+
+##Default included gem
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

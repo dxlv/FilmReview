@@ -1,0 +1,7 @@
+<!-- Display all films-->
+<% @films.each do |film| %>
+  <h1><%=link_to film.name, film_path(film) %></h1>
+<% end %>
+
+<!-- Link to create a new film-->
+<%= link_to "New Film", new_film_path %>

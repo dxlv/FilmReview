@@ -1,0 +1,7 @@
+<h1><%= @film.name %></h1>
+<h3><%= @film.year %></h3>
+<h2><%= @film.director %></h2>
+<p><%= @film.desc %><p>
+<h3><%= @film.cast %></h3>
+<%= link_to "edit Film", edit_film_path(@film) %>
+<%= link_to "Delete Film", film_path(@film), method: :delete, data: { confirm: "Are you sure you want to delete"} %>

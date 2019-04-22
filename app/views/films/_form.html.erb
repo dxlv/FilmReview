@@ -1,0 +1,23 @@
+
+<!-- Show validation error messages-->
+<% if @film.errors.any? %>
+  <h2>Errors</h2>
+  <ul>
+
+    <% @film.errors.full_messages.each do |message| %>
+        <li>
+            <%= message %>
+        </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<!-- Form Generator-->
+<%= simple_form_for @film do |f| %>
+  <%= f.input :name, label: "Film Name" %>
+  <%= f.input :desc, label: "Film Description" %>
+  <%= f.input :director %>
+  <%= f.input :cast %>
+  <%= f.input :year %>
+  <%= f.button :submit %>
+<% end %>
