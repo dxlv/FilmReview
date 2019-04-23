@@ -1,13 +1,19 @@
-<div class="review-rating" data-score= <%= review.rating %> ></div>
-<p><%= review.comment%></p>
-<% @user = User.find(review.user_id) %>
-<p>By: <%=@user.username%></p>
+<div class="review">
+  
+  <div class="review-rating" data-score= <%= review.rating %> ></div>
+  <h5><%= review.comment%></h5>
+  <% @user = User.find(review.user_id) %>
+  <p>By: <%=@user.username%></p>
 
-<% if user_signed_in? %>
+  <div class="links btn-group">
+    <% if user_signed_in? %>
 
-    <% if review.user_id == current_user.id || current_user.admin? || current_user.editor? %>
-        <%= link_to "Edit", edit_film_review_path(review.film, review) %>
-        <%= link_to "Delete", film_review_path(review.film, review), method: :delete, data: { confirm: "Are you sure you want to delete?"} %>
+        <% if review.user_id == current_user.id || current_user.admin? || current_user.editor? %>
+            <%= link_to "Edit", edit_film_review_path(review.film, review), class: "btn btn-custom" %>
+            <%= link_to "Delete", film_review_path(review.film, review), method: :delete, data: { confirm: "Are you sure you want to delete?"}, class: "btn btn-custom" %>
+        <% end %>
+
     <% end %>
+  </div>
 
-<% end %>
+</div>

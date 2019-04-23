@@ -6,53 +6,56 @@
 
   <div class="col-md-8">
 
-    <h1><%= @film.name %></h1>
-    <h3><%= @film.year %></h3>
-    <h2>Average rating</h2>
-    <div class="average-review-rating" data-score=<%= @average_review %>></div>
-    <span>Based on <%= @film.reviews.count %> reviews</span>
-    <h2><%= @film.director %></h2>
-    <p><%= @film.desc %><p>
-    <h3><%= @film.cast %></h3>
-    <% @user = User.find(@film.user_id) %>
-    <p>Added by <%= @user.username %></p>
+    <div class="film-info">
+
+      <h2 class="film-title"><%= @film.name %></h2>
+      <span><%= @film.year %></span>
+      <h2 class="avg-rating">Average rating</h2>
+      <div class="average-review-rating" data-score=<%= @average_review %>></div>
+      <span class="number-of-reviews">Based on <%= @film.reviews.count %> reviews</span>
+      <h3 class="film-author">Director : <%= @film.director %></h3>
+      <h4 class='film-author'>Cast : <%= @film.cast %></h4>
+
+      <p class="film-desc"> <%= @film.desc %><p>
+
+      <% @user = User.find(@film.user_id) %>
+      <span>Added by <%= @user.username %></span>
+
+      <h4>
+        <%= link_to "Add review", new_film_review_path(@film), class: "btn btn-custom"  %>
+        <% if user_signed_in? %>
+                  <% if @film.user_id == current_user.id || current_user.admin? %>
+                      <%= link_to "Edit Film", edit_film_path(@film), class: "btn btn-custom" %>
+                      <%= link_to "Delete Film", film_path(@film), method: :delete, data: { confirm: "Are you sure you want to delete"}, class: "btn btn-custom"  %>
+                  <% end %>
+
+                  <% if current_user.editor %>
+                      <%= link_to "Edit Film", edit_film_path(@film), class: "btn btn-custom"  %>
+                  <% end %>
+          <% end %>
+
+      </h4>
 
 
+    </div>
 
   </div>
 
 </div>
+
 
 <div class="row">
-
   <div class="col-md-4">
-      <!--  %> -->
+    <div class="reviews">
+
+      <h1>Reviews</h1>
       <%= render @film.reviews.order("created_at DESC") %>
-      <%= link_to "Add review", new_film_review_path(@film) %>
 
+
+    </div>
   </div>
-
 </div>
 
-
-<% if user_signed_in? %>
-
-  <% if @film.user_id == current_user.id || current_user.admin? %>
-      <ul>
-        <li><%= link_to "Edit Film", edit_film_path(@film) %></li>
-        <li><%= link_to "Delete Film", film_path(@film), method: :delete, data: { confirm: "Are you sure you want to delete"} %></li>
-      </ul>
-
-  <% end %>
-
-  <% if current_user.editor %>
-    <ul>
-      <li><%= link_to "Edit Film", edit_film_path(@film) %></li>
-    </ul>
-
-  <% end %>
-
-<% end %>
 
 <script>
     $('.review-rating').raty({
