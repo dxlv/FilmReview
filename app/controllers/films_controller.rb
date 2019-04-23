@@ -11,7 +11,11 @@ class FilmsController < ApplicationController
 
   #function to show each film indivuay
   def show
-
+    if @film.reviews.blank?
+      @average_review = 0
+    else
+      @average_review = @film.reviews.average(:rating).round(2)
+    end
   end
   #New function to create a new Films linked to the new film view
   def new

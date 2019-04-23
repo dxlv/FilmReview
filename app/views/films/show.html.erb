@@ -8,6 +8,9 @@
 
     <h1><%= @film.name %></h1>
     <h3><%= @film.year %></h3>
+    <h2>Average rating</h2>
+    <div class="average-review-rating" data-score=<%= @average_review %>></div>
+    <span>Based on <%= @film.reviews.count %> reviews</span>
     <h2><%= @film.director %></h2>
     <p><%= @film.desc %><p>
     <h3><%= @film.cast %></h3>
@@ -50,3 +53,23 @@
   <% end %>
 
 <% end %>
+
+<script>
+    $('.review-rating').raty({
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+          },
+          path: '/assets'
+  });
+</script>
+
+<script>
+    $('.average-review-rating').raty({
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+          },
+          path: '/assets'
+  });
+</script>
