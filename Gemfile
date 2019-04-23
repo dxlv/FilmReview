@@ -29,6 +29,9 @@ gem 'recaptcha', require: 'recaptcha/rails'
 #for authorization
 gem 'cancancan'
 
+#to upload images to the application
+gem 'paperclip', '~> 6.1'
+
 ##Default included gem
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -17,3 +17,20 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ .container-wide{
+   max-width: 1920px;
+   min-width: 1080px;
+   margin: 0px 10px 0px 150px;
+ }
+
+.film{
+  height: 350px;
+  width: 250px;
+}
+
+
+.film{
+  height: 475px;
+  width: 325px;
+}

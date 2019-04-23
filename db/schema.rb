@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_210955) do
+ActiveRecord::Schema.define(version: 2019_04_22_233447) do
 
   create_table "films", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 2019_04_22_210955) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "film_img_file_name"
+    t.string "film_img_content_type"
+    t.bigint "film_img_file_size"
+    t.datetime "film_img_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

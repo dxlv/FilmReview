@@ -1,4 +1,10 @@
 <!-- Display all films-->
-<% @films.each do |film| %>
-  <h1><%=link_to film.name, film_path(film) %></h1>
-<% end %>
+<div class="row">
+  <% @films.each do |film| %>
+    <div class="col-md-3">
+      <a href="films/<%= film.id %>">
+        <%= image_tag film.film_img.url(:film_index), class: "film" %>
+      </a>
+    </div>
+  <% end %>
+</div>

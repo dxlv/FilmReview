@@ -16,7 +16,6 @@ class FilmsController < ApplicationController
   #New function to create a new Films linked to the new film view
   def new
       @film = current_user.films.build
-      authorize! :manage, @film
   end
 
   #create function works with the new function to create a new film
@@ -58,7 +57,7 @@ class FilmsController < ApplicationController
 
     #define what aparamertes are allowed for a film
     def film_params
-      params.require(:film).permit(:name, :director, :cast, :desc, :year)
+      params.require(:film).permit(:name, :director, :cast, :desc, :year, :film_img)
     end
 
     def find_film
