@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    authorize! :update, @film
+    authorize! :update, @review
     if @review.update(review_params)
       redirect_to film_path(@film)
     else
