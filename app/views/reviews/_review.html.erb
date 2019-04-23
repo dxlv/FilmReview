@@ -1,0 +1,13 @@
+<p><%= review.rating %></p>
+<p><%= review.comment%></p>
+<% @user = User.find(review.user_id) %>
+<p>By: <%=@user.username%></p>
+
+<% if user_signed_in? %>
+
+    <% if review.user_id == current_user.id || current_user.admin? || current_user.editor? %>
+        <%= link_to "Edit", edit_film_review_path(review.film, review) %>
+        <%= link_to "Delete", film_review_path(review.film, review), method: :delete, data: { confirm: "Are you sure you want to delete?"} %>
+    <% end %>
+
+<% end %>

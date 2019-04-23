@@ -11,9 +11,11 @@ class Ability
          can :manage, :all
        elsif user.editor?
          can :update, Film
+         can :manage, Review
 
        else
          can :manage, Film, user_id: user.id
+         can :manage, Review, user_id: user.id
          can :read, :all
        end
     #

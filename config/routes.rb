@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: "registrations", passwords: "passwords",}
   # Create the routes to allow navigation in our application
-  resources :films
+  resources :films do
+    resources :reviews
+  end
 
   root 'films#index'
 

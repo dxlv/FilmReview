@@ -1,0 +1,18 @@
+<!-- Show validation error messages-->
+<% if @review.errors.any? %>
+  <h2>Errors</h2>
+  <ul>
+
+    <% @review.errors.full_messages.each do |message| %>
+        <li>
+            <%= message %>
+        </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= simple_form_for([@film, @film.reviews.build]) do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :comment %>
+  <%= f.button :submit %>
+<% end %>

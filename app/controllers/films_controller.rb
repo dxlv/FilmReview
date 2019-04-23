@@ -37,6 +37,7 @@ class FilmsController < ApplicationController
 
   #works with the edit function to edit films
   def update
+    authorize! :update, @film
     if @film.update(film_params)
       redirect_to film_path(@film)
     else
